@@ -33,7 +33,7 @@
         </div>
         <div class="hero-visual">
             <div class="frame">
-                <img src="{{ url_for('static', filename='img/hooded-sweatshirt.svg') }}" alt="Spazz hooded sweatshirt">
+                <img src="{% if random_photos %}https://picsum.photos/seed/hooded-sweatshirt/600/660{% else %}{{ url_for('static', filename='img/hooded-sweatshirt.svg') }}{% endif %}" onerror="this.onerror=null;this.src='{{ url_for('static', filename='img/hooded-sweatshirt.svg') }}'" alt="Spazz hooded sweatshirt">
                 <span class="scan" aria-hidden="true"></span>
             </div>
         </div>
@@ -49,7 +49,7 @@
             {% for p in products %}
             <article class="card">
                 <div class="frame">
-                    <img src="{{ url_for('static', filename='img/' ~ p.id ~ '.svg') }}" alt="{{ p.name }}" loading="lazy">
+                    <img src="{% if random_photos %}https://picsum.photos/seed/{{ p.id }}/600/660{% else %}{{ url_for('static', filename='img/' ~ p.id ~ '.svg') }}{% endif %}" onerror="this.onerror=null;this.src='{{ url_for('static', filename='img/' ~ p.id ~ '.svg') }}'" alt="{{ p.name }}" loading="lazy">
                 </div>
                 <div class="card-body">
                     <span class="category">{{ p.category }}</span>
