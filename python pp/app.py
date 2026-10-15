@@ -2,8 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# True = random placeholder photos from the internet, False = the drawn SVG pictures
-USE_RANDOM_PHOTOS = False
+
 
 PRODUCTS = [
     {"id": "classic-tee", "name": "Spazz classic tee", "price": 150,
