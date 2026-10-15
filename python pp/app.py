@@ -2,6 +2,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# True = random placeholder photos from the internet, False = the drawn SVG pictures
+USE_RANDOM_PHOTOS = True
+
 PRODUCTS = [
     {"id": "classic-tee", "name": "Spazz classic tee", "price": 150,
      "category": "T-shirts", "blurb": "Heavyweight cotton, clean collar, relaxed fit."},
@@ -20,7 +23,7 @@ PRODUCTS = [
 
 @app.route("/")
 def home():
-    return render_template("index.html", products=PRODUCTS)
+    return render_template("index.html", products=PRODUCTS, random_photos=USE_RANDOM_PHOTOS)
 
 
 if __name__ == "__main__":
